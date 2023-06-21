@@ -6,6 +6,7 @@ tea_menu = ["1. Classic Milk Tea", "2. Thai Milk Tea", "3. Honey Milk Tea", "4. 
 
 tea_prices = [5.50, 5.50, 5.75, 6.00, 6.00, 6.00, 6.25, 6.50, 6.50, 6.50, 6.50, 6.75, 6.75]
  
+ # display welcome message
 def welcome_messages():
     print("=======================================")
     print("     WELCOME TO X BUBBLE MILK TEA")
@@ -14,16 +15,20 @@ def welcome_messages():
     print("Pick your favourite milk tea from our menu ^^: ")
     print()
 
+# display the menu
 def menu():
   for i in range(0, len(tea_menu)):
       print(tea_menu[i])
-      
+
+# display the user selection
 def selection():
     menu()
     print()
 
+    # extract the number of out the list 
     tea_list_numbers = [int(item.split(".")[0]) for item in tea_menu]
 
+    # user choose the tea by the number
     user_choice = int(input("Your tea choice: "))
 
     if user_choice in tea_list_numbers:
