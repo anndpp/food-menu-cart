@@ -1,6 +1,8 @@
-tea_menu = ["Classic Milk Tea", "Thai Milk Tea", "Honey Milk Tea", "Honeydew Milk Tea", 
-            "Mango Milk Tea", "Peach Milk Tea", "Jasmine Milk Tea", "Taro Milk Tea",
-            "Matcha Milk Tea", "Ginger Milk Tea", "Guava Milk Tea", "Passion Fruit Milk Tea"]
+tea_menu = ["1. Classic Milk Tea", "2. Thai Milk Tea", "3. Honey Milk Tea", "4. Honeydew Milk Tea", 
+            "5. Mango Milk Tea", "6. Peach Milk Tea", "7. Jasmine Milk Tea", "8. Taro Milk Tea",
+            "9. Matcha Milk Tea", "10. Ginger Milk Tea", "11. Guava Milk Tea", "12. Passion Fruit Milk Tea"]
+
+
 
 tea_prices = [5.50, 5.50, 5.75, 6.00, 6.00, 6.00, 6.25, 6.50, 6.50, 6.50, 6.50, 6.75, 6.75]
  
@@ -19,12 +21,15 @@ def menu():
 def selection():
     menu()
     print()
-    user_choice = input("Your tea choice: ")
-    
-    if user_choice in tea_menu:
-        idx = tea_menu.index(user_choice)
+
+    tea_list_numbers = [int(item.split(".")[0]) for item in tea_menu]
+
+    user_choice = int(input("Your tea choice: "))
+
+    if user_choice in tea_list_numbers:
+        idx = tea_list_numbers.index(user_choice)
         price = tea_prices[idx]
-        print("Your milk tea {} costs {}".format(user_choice, price))
+        print("Your milk tea costs {}".format(price))
     else:
         print("Tea not in the menu")
 
