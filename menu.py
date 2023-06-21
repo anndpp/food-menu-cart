@@ -7,7 +7,7 @@ tea_prices = [5.50, 5.50, 5.75, 6.00, 6.00, 6.00, 6.25, 6.50, 6.50, 6.50, 6.50, 
  # display welcome message
 def welcome_messages():
     print("=======================================")
-    print("     WELCOME TO X BUBBLE MILK TEA")
+    print("     WELCOME TO X MILK TEA")
     print("=======================================")
 
     print("Pick your favourite milk tea from our menu ^^: ")
