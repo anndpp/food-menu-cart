@@ -10,21 +10,29 @@ def welcome_messages():
     print("     WELCOME TO X MILK TEA")
     print("=======================================")
 
-    print("Pick your favourite milk tea from our menu ^^: ")
+    # print("Pick your favourite milk tea from our menu ^^: ")
     print()
 
 # display the menu
 def menu():
-  for i in range(0, len(tea_menu)):
-      print(tea_menu[i])
+    user_choice = input("Would you like to look at the menu? [y/n] ")
+    if user_choice == "y": 
+        selection()
+    if user_choice == "n":
+         print("Thank you! See you again! ")
+
 
 # display the user selection
 def selection():
-    menu()
     print()
+
+    for i in range(0, len(tea_menu)):
+            print(tea_menu[i])
 
     # extract the number of out the list 
     tea_list_numbers = [int(item.split(".")[0]) for item in tea_menu]
+
+    print()
 
     # user choose the tea by the number
     user_choice = int(input("Your tea choice: "))
@@ -38,4 +46,4 @@ def selection():
 
 if __name__ == "__main__":
     welcome_messages()
-    selection()
+    menu()
