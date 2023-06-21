@@ -19,9 +19,14 @@ def menu():
 def selection():
     menu()
     print()
-    choice = int(input("Your tea choice: "))
-    if choice > 0 and choice <= 13:
-        quantity()
+    user_choice = input("Your tea choice: ")
+    
+    if user_choice in tea_menu:
+        idx = tea_menu.index(user_choice)
+        price = tea_prices[idx]
+        print("Your milk tea {} costs {}".format(user_choice, price))
+    else:
+        print("Tea not in the menu")
 
 def quantity():
     drink_quantity = int(input("How many would you like? "))
