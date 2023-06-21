@@ -3,7 +3,9 @@ tea_menu = ["1. Classic Milk Tea", "2. Thai Milk Tea", "3. Honey Milk Tea", "4. 
             "9. Matcha Milk Tea", "10. Ginger Milk Tea", "11. Guava Milk Tea", "12. Passion Fruit Milk Tea"]
 
 tea_prices = [5.50, 5.50, 5.75, 6.00, 6.00, 6.00, 6.25, 6.50, 6.50, 6.50, 6.50, 6.75, 6.75]
- 
+
+user_order = []
+
  # display welcome message
 def welcome_messages():
     print("=======================================")
