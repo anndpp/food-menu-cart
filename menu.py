@@ -1,65 +1,74 @@
-tea_menu = ["1. Classic Milk Tea", "2. Thai Milk Tea", "3. Honey Milk Tea", "4. Honeydew Milk Tea", 
-            "5. Mango Milk Tea", "6. Peach Milk Tea", "7. Jasmine Milk Tea", "8. Taro Milk Tea",
-            "9. Matcha Milk Tea", "10. Ginger Milk Tea", "11. Guava Milk Tea", "12. Passion Fruit Milk Tea"]
-
-tea_prices = [5.50, 5.50, 5.75, 6.00, 6.00, 6.00, 6.25, 6.50, 6.50, 6.50, 6.50, 6.75, 6.75]
-
 menu_and_prices = {
-                    "1. Classic Milk Tea":5.50,
-                    "2. Thai Milk Tea": 5.50,
-                    "3. Honey Milk Tea": 5.75,
-                    "4. Honeydew Milk Tea": 6.00,
-                    "5. Mango Milk Tea": 6.00,
-                    "6. Peach Milk Tea": 6.00, 
-                    "7. Jasmine Milk Tea": 6.25,
-                    "8. Taro Milk Tea": 6.50,
-                    "9. Matcha Milk Tea": 6.50,
-                    "10. Ginger Milk Tea": 6.50,
-                    "11. Guava Milk Tea": 6.75,
-                    "12. Passion Fruit Milk Tea": 6.75  }
+                    "1": {"item" :"Classic Milk Tea", "price": 5.50},
+                    "2": {"item" :"Thai Milk Tea", "price": 5.50},
+                    "3": {"item" :"Honey Milk Tea", "price": 5.7},
+                    "4": {"item" :"Honeydew Milk Tea", "price": 6.00}, 
+                    "5": {"item" :"Mango Milk Tea", "price": 6.00},
+                    "6": {"item" :"Peach Milk Tea", "price": 6.00},
+                    "7": {"item" :"Jasmine Milk Tea", "price": 6.25},
+                    "8": {"item" :"Taro Milk Tea", "price": 6.50},
+                    "9": {"item" :"Matcha Milk Tea", "price": 6.50},
+                    "10": {"item" :"Ginger Milk Tea", "price": 6.50},
+                    "11": {"item" :"Guava Milk Tea", "price": 6.75},
+                    "12": {"item" :"Passion Fruit Milk Tea", "price": 6.75},
+                    }
 
 user_order = []
 
- # display welcome message
-def welcome_messages():
+# display the menu
+def display_menu():
+    for key, value in menu_and_prices.items():
+        print(f"{key}. {value['item']}: ${value['price']}")
+
+# display the user selection
+def add_order(item):
+    if item in menu_and_prices:
+        user_order.append(menu_and_prices[item])
+        print(f"{menu_and_prices[item]['item']} added to order.")
+    else:
+        print("Invalid item.")
+
+def view_order():
+    if len(user_order) > 0:
+        print("View order: ")
+        for item in user_order:
+            print(f"{item['item']}: ${item['price']}")
+    else:
+        print("Your order is empty.")
+   
+def calculate_total():
+    total = sum(item["price"] for item in user_order)
+    print(f"Total price: ${total}")
+
+def welcome_message():
     print("=======================================")
     print("     WELCOME TO X MILK TEA")
     print("=======================================")
 
-    # print("Pick your favourite milk tea from our menu ^^: ")
-    print()
-
-# display the menu
-def menu():
-    user_choice = input("Would you like to look at the menu? [y/n]: ")
-    if user_choice == "y": 
-        selection()
-    if user_choice == "n":
-         print("Thank you! See you again! ")
-
-
-# display the user selection
-def selection():
-    print()
-
-    for i in range(0, len(tea_menu)):
-            print(tea_menu[i])
-
-    # extract the number of out the list 
-    tea_list_numbers = [int(item.split(".")[0]) for item in tea_menu]
-
-    print()
-
-    # user choose the tea by the number
-    user_choice = int(input("Your tea choice: "))
-
-    if user_choice in tea_list_numbers:
-        idx = tea_list_numbers.index(user_choice)
-        price = tea_prices[idx]
-        print("Your milk tea costs ${}".format(price))
-    else:
-        print("Tea not in the menu")
+    while True:
+        print("\n1. Display Menu")
+        print("2. Add to Cart")
+        print("3. View Cart")
+        print("4. Calculate Total")
+        print("5. Exit\n")
+        
+        choice = input("Enter your choice (1-5): ")
+        
+        if choice == '1':
+            print("\nThis is the menu: ")
+            display_menu()
+        elif choice == '2':
+            item = input("Enter the item number to add to cart: ")
+            add_order(item)
+        elif choice == '3':
+            view_order()
+        elif choice == '4':
+            calculate_total()
+        elif choice == '5':
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
-    welcome_messages()
-    menu()
+    welcome_message()
+
