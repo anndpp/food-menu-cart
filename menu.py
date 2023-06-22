@@ -4,6 +4,20 @@ tea_menu = ["1. Classic Milk Tea", "2. Thai Milk Tea", "3. Honey Milk Tea", "4. 
 
 tea_prices = [5.50, 5.50, 5.75, 6.00, 6.00, 6.00, 6.25, 6.50, 6.50, 6.50, 6.50, 6.75, 6.75]
 
+menu_and_prices = {
+                    "1. Classic Milk Tea":5.50,
+                    "2. Thai Milk Tea": 5.50,
+                    "3. Honey Milk Tea": 5.75,
+                    "4. Honeydew Milk Tea": 6.00,
+                    "5. Mango Milk Tea": 6.00,
+                    "6. Peach Milk Tea": 6.00, 
+                    "7. Jasmine Milk Tea": 6.25,
+                    "8. Taro Milk Tea": 6.50,
+                    "9. Matcha Milk Tea": 6.50,
+                    "10. Ginger Milk Tea": 6.50,
+                    "11. Guava Milk Tea": 6.75,
+                    "12. Passion Fruit Milk Tea": 6.75  }
+
 user_order = []
 
  # display welcome message
@@ -17,7 +31,7 @@ def welcome_messages():
 
 # display the menu
 def menu():
-    user_choice = input("Would you like to look at the menu? [y/n] ")
+    user_choice = input("Would you like to look at the menu? [y/n]: ")
     if user_choice == "y": 
         selection()
     if user_choice == "n":
